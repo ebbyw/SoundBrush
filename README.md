@@ -19,18 +19,28 @@ INSTRUCTIONS:
 
 Menu Options:
 ------------------------
-Color:        Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then
-              confirm that color by tapping the center circle.
+Color:        Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then confirm that color by tapping the center circle.
+              
 Emboss:       Changes brush type such that all brush strokes are embossed.
+
 Blur:         Changes brush type such that all brush strokes are blurred.
+
 Erase:        Changes brush type to eraser, erases all colors the user brushes on top of.
+
 SrcATop:      Changes brush type so that the user can layer the currently selected color on top of already drawn brush strokes.
+
 Brush Size:   Changes brush radius, allowing user to select a radius between 1 and 501;
+
 Alpha Value:  Changes brush stroke opacity, values range from 1 to 255;
+
 Picture Menu: Takes you to the gallery menu in order to select a different canvas.
+
 PLAY:         Plays back the image sound.
+
 STOP:         Stops playback.
-Set Time:     Time multiplier
+
+Set Time:     Time multiplier.
+
 Major/Minor:  Toggles playback scale between major and minor. 
 
 
