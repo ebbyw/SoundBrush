@@ -24,6 +24,7 @@ public class picmenu extends Activity implements View.OnClickListener
 		findViewById(R.id.imageButton3).setOnClickListener(this);
 		findViewById(R.id.imageButton4).setOnClickListener(this);
 		findViewById(R.id.imageButton5).setOnClickListener(this);
+		findViewById(R.id.button1).setOnClickListener(this);
 		
 		mp = new MediaPlayer();
 		mp.setLooping(true);
@@ -126,6 +127,21 @@ public class picmenu extends Activity implements View.OnClickListener
 		    	try
 		    	{
 		    		splash.prefEditor.putInt("CUR_PIC_ID", 4);
+		    		splash.prefEditor.commit();
+		    		startActivity(new Intent(getApplicationContext(), MainActivity.class));
+		    	}
+		    	catch(Throwable t)
+		    	{
+		    		Log.d("EBBY", t.toString());
+		    	}
+		    	break;
+		    }
+		    
+			case R.id.button1:
+		    {
+		    	try
+		    	{
+		    		splash.prefEditor.putInt("CUR_PIC_ID", 5);
 		    		splash.prefEditor.commit();
 		    		startActivity(new Intent(getApplicationContext(), MainActivity.class));
 		    	}

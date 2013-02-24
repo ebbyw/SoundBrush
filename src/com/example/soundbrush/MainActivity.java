@@ -80,12 +80,13 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         mainView = new MyView(this);
         setContentView(mainView);
         timemultiplier = 1;
-        pictureIDs = new int [5];
+        pictureIDs = new int [6];
         pictureIDs[0] = R.drawable.adam_and_god;
         pictureIDs[1] = R.drawable.caveman_picture;
         pictureIDs[2] = R.drawable.the_kiss;
         pictureIDs[3] = R.drawable.the_scream;
         pictureIDs[4] = R.drawable.mona_lisa;
+        pictureIDs[5] = R.drawable.blank_canvas;
         splash.prefEditor.putInt("BRUSH_SIZE", brushSize); // loads default Brush Size
         splash.prefEditor.putInt("ALPHA_NUM",alphanum);
         splash.prefEditor.commit();
@@ -349,12 +350,12 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
     //New Stuff
     private static final int CHANGE_SIZE_MENU_ID = Menu.FIRST +5;
     private static final int CHANGE_ALPHA = Menu.FIRST + 6;
-    private static final int SHARE_BUTTON = Menu.FIRST + 7;
-    private static final int PIC_MENU = Menu.FIRST + 8;
-    private static final int PLAY_MENU_ID = Menu.FIRST + 9;
-    private static final int STOP_MENU_ID = Menu.FIRST + 10;
-    private static final int TIMING_MENU_ID = Menu.FIRST + 11;
-    private static final int SCALE_ID = Menu.FIRST + 12;
+    //private static final int SHARE_BUTTON = Menu.FIRST + 7;
+    private static final int PIC_MENU = Menu.FIRST + 7;
+    private static final int PLAY_MENU_ID = Menu.FIRST + 8;
+    private static final int STOP_MENU_ID = Menu.FIRST + 9;
+    private static final int TIMING_MENU_ID = Menu.FIRST + 10;
+    private static final int SCALE_ID = Menu.FIRST + 11;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -367,7 +368,7 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         //New stuff
         menu.add(0, CHANGE_SIZE_MENU_ID,0,"Brush Size").setShortcut('5','z');
         menu.add(0,CHANGE_ALPHA,0,"Alpha Value").setShortcut('5', 'z');
-        menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
+        //menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
         menu.add(0,PIC_MENU,0,"Picture Menu").setShortcut('5', 'z');
         menu.add(0, PLAY_MENU_ID, 0, "PLAY").setShortcut('0', 'z');
         menu.add(0, STOP_MENU_ID, 0, "STOP").setShortcut('0', 'z');
@@ -487,9 +488,9 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
 				});
             	ad2.show();
             	return true;
-            case SHARE_BUTTON:
+            //case SHARE_BUTTON:
             	
-            	return true;
+            //	return true;
             
             case PIC_MENU:
             	startActivity(new Intent(getBaseContext(), picmenu.class));

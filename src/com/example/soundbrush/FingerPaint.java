@@ -176,8 +176,8 @@ public class FingerPaint extends Activity implements ColorPickerDialog.OnColorCh
     //New Stuff
     private static final int CHANGE_SIZE_MENU_ID = Menu.FIRST +5;
     private static final int CHANGE_ALPHA = Menu.FIRST + 6;
-    private static final int SHARE_BUTTON = Menu.FIRST + 7;
-    private static final int PIC_MENU = Menu.FIRST + 8;
+    //private static final int SHARE_BUTTON = Menu.FIRST + 7;
+    private static final int PIC_MENU = Menu.FIRST + 7;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -191,7 +191,7 @@ public class FingerPaint extends Activity implements ColorPickerDialog.OnColorCh
         //New stuff
         menu.add(0, CHANGE_SIZE_MENU_ID,0,"Brush Size").setShortcut('5','z');
         menu.add(0,CHANGE_ALPHA,0,"Alpha Value").setShortcut('5', 'z');
-        menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
+        //menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
         menu.add(0,PIC_MENU,0,"Picture Menu").setShortcut('5', 'z');
 
         /****   Is this the mechanism to extend with filter effects?
@@ -250,7 +250,7 @@ public class FingerPaint extends Activity implements ColorPickerDialog.OnColorCh
                 
             case CHANGE_SIZE_MENU_ID:
             	final SeekBar sb = new SeekBar(this);
-            	sb.setMax(500);
+            	sb.setMax(499);
             	AlertDialog ad = new AlertDialog.Builder(this).create();
             	ad.setTitle("Brush Size");
                 ad.setView(sb);  	
@@ -304,9 +304,9 @@ public class FingerPaint extends Activity implements ColorPickerDialog.OnColorCh
 				});
             	ad2.show();
             	return true;
-            case SHARE_BUTTON:
+           // case SHARE_BUTTON:
             	
-            	return true;
+           // 	return true;
             
             case PIC_MENU:
             	startActivity(new Intent(getBaseContext(), picmenu.class));

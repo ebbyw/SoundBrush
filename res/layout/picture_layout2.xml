@@ -41,9 +41,19 @@
         android:id="@+id/imageButton5"
         android:layout_width="100dip"
         android:layout_height="100dip"
+        android:layout_alignLeft="@+id/imageButton4"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="24dp"
         android:src="@drawable/mona_lisa_icon" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton3"
+        android:layout_alignRight="@+id/imageButton3"
+        android:layout_alignTop="@+id/imageButton5"
+        android:layout_marginTop="20dp"
+        android:text="Blank Canvas" />
 
 </RelativeLayout>
