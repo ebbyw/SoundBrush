@@ -22,22 +22,25 @@ public final class R {
         public static final int caveman_picture_icon=0x7f020003;
         public static final int ic_action_search=0x7f020004;
         public static final int ic_launcher=0x7f020005;
-        public static final int the_kiss=0x7f020006;
-        public static final int the_kiss_icon=0x7f020007;
-        public static final int the_scream=0x7f020008;
-        public static final int the_scream_icon=0x7f020009;
+        public static final int mona_lisa=0x7f020006;
+        public static final int mona_lisa_icon=0x7f020007;
+        public static final int sound_brush=0x7f020008;
+        public static final int the_kiss=0x7f020009;
+        public static final int the_kiss_icon=0x7f02000a;
+        public static final int the_scream=0x7f02000b;
+        public static final int the_scream_icon=0x7f02000c;
     }
     public static final class id {
         public static final int TOPlayout=0x7f090004;
-        public static final int imageButton1=0x7f090009;
-        public static final int imageButton2=0x7f090006;
-        public static final int imageButton3=0x7f090008;
-        public static final int imageButton4=0x7f090007;
-        public static final int imageView1=0x7f090005;
+        public static final int imageButton1=0x7f090008;
+        public static final int imageButton2=0x7f090005;
+        public static final int imageButton3=0x7f090007;
+        public static final int imageButton4=0x7f090006;
+        public static final int imageButton5=0x7f090009;
+        public static final int imageView1=0x7f090003;
         public static final int menu_settings=0x7f09000a;
-        public static final int start=0x7f090003;
+        public static final int start=0x7f090002;
         public static final int thetext=0x7f090001;
-        public static final int title=0x7f090002;
         public static final int top=0x7f090000;
     }
     public static final class layout {

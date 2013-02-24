@@ -80,11 +80,12 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         mainView = new MyView(this);
         setContentView(mainView);
         timemultiplier = 1;
-        pictureIDs = new int [4];
+        pictureIDs = new int [5];
         pictureIDs[0] = R.drawable.adam_and_god;
         pictureIDs[1] = R.drawable.caveman_picture;
         pictureIDs[2] = R.drawable.the_kiss;
         pictureIDs[3] = R.drawable.the_scream;
+        pictureIDs[4] = R.drawable.mona_lisa;
         splash.prefEditor.putInt("BRUSH_SIZE", brushSize); // loads default Brush Size
         splash.prefEditor.putInt("ALPHA_NUM",alphanum);
         splash.prefEditor.commit();

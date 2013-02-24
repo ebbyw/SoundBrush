@@ -37,4 +37,13 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/adam_and_god_icon" />
 
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:src="@drawable/mona_lisa_icon" />
+
 </RelativeLayout>
