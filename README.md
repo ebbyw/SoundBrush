@@ -54,6 +54,9 @@ Shareen Dookie (amarararah.wordpress.com)
 Programming:
 ----------------------
 Daniel Dyre-Greensite 
+
 Eric Fields
+
 Matthew Kyprie (sites.google.com/site/mattkyprie)
+
 Ebtissam "Ebby" Wahman (ebbyw.com)
