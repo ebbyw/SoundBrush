@@ -3,6 +3,8 @@ package com.example.soundbrush;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -10,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 public class splash extends Activity implements View.OnClickListener
 {
@@ -56,6 +59,20 @@ public class splash extends Activity implements View.OnClickListener
 		e.printStackTrace();
 		}
 		mp.start();
+		ImageView theCat = new ImageView(this);
+		theCat.setBackgroundResource(R.drawable.angrycat);
+		AlertDialog ad = new AlertDialog.Builder(this).create();
+		ad.setTitle("HELLO WORLD");
+		ad.setButton(DialogInterface.BUTTON_NEGATIVE, "NO", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		ad.setView(theCat);
+		ad.show();
 	}
 	
 	@Override
