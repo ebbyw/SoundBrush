@@ -9,7 +9,7 @@
         android:layout_height="100dip"
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
-        android:src="@drawable/caveman_picture_icon" />
+        android:src="@drawable/caveman_picture_icon"/>
 
     <ImageButton
         android:id="@+id/imageButton4"
