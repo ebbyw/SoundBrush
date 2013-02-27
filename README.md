@@ -3,7 +3,7 @@ SoundBrush
 
 A sonified coloring book!
 
-SoundBrush is an interactive painting and audio plaback application for the android operating system. Users can 
+SoundBrush is an interactive painting and audio playback application for android operating systems 2.3 and up. Users can 
 color in pre-outlined images or paint on a blank canvas for more visual freedom.
 
 Version 1.0
