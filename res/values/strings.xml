@@ -4,5 +4,19 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SoundBrush</string>
+    
+    <string name="button1_desc">Button for the Caveman Image</string>
+    <string name="button2_desc">Button for the Scream Image</string>
+    <string name="button3_desc">Button for the Kiss Image</string>
+    <string name="button4_desc">Button for the Adam and God Image</string>
+    <string name="button5_desc">Button for the Mona Lisa Image</string>
+    <string name="button6_desc">Blank Canvas</string>
+    
+    <string name="button1_pic">@drawable/caveman_picture_small</string>
+    <string name="button2_pic">@drawable/the_scream_small</string>
+    <string name="button3_pic">@drawable/the_kiss_small</string>
+    <string name="button4_pic">@drawable/adam_and_god_small</string>
+    <string name="button5_pic">@drawable/mona_lisa_small</string>
+    
 
 </resources>

@@ -59,7 +59,8 @@ public class splash extends Activity implements View.OnClickListener
 		e.printStackTrace();
 		}
 		mp.start();
-		ImageView theCat = new ImageView(this);
+		
+		/*ImageView theCat = new ImageView(this);
 		theCat.setBackgroundResource(R.drawable.angrycat);
 		AlertDialog ad = new AlertDialog.Builder(this).create();
 		ad.setTitle("HELLO WORLD");
@@ -72,7 +73,7 @@ public class splash extends Activity implements View.OnClickListener
 			}
 		});
 		ad.setView(theCat);
-		ad.show();
+		ad.show();*/
 	}
 	
 	@Override

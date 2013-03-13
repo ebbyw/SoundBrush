@@ -37,11 +37,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
-import android.support.v4.app.NavUtils;
-import android.widget.RelativeLayout;
 import java.lang.Math;
 
-import com.example.soundbrush.FingerPaint.MyView;
 
 public class MainActivity extends Activity implements ColorPickerDialog.OnColorChangedListener
 {
@@ -62,10 +59,12 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
     final float startingFreq = (float) (440 * Math.pow(2.0, 1 / 12.0)); // start from Bb (REMOVE THIS LATER)
     final int [] majorScaleIndexes = {0, 2, 4, 5, 7, 9, 11, 12};
     final int [] minorScaleIndexes = {0, 2, 3, 5, 7, 8, 10, 12};
+    
+    //Initial Preference values
   	int brushSize = 12;
-  	int alphanum = 127;
-  	int colornum = 0xFFAAAAAA;
-  	int timemultiplier;
+  	int alphanum = 255;
+  	int colornum = 0xFFAAAAAA; //That's red btw
+  	int timemultiplier = 1;
   	int scale = 0;
  
   	MyView mainView;
@@ -81,14 +80,16 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         setContentView(mainView);
         timemultiplier = 1;
         pictureIDs = new int [6];
-        pictureIDs[0] = R.drawable.adam_and_god;
-        pictureIDs[1] = R.drawable.caveman_picture;
+        pictureIDs[0] = R.drawable.caveman_picture;
+        pictureIDs[1] = R.drawable.the_scream;
         pictureIDs[2] = R.drawable.the_kiss;
-        pictureIDs[3] = R.drawable.the_scream;
+        pictureIDs[3] = R.drawable.adam_and_god;
         pictureIDs[4] = R.drawable.mona_lisa;
         pictureIDs[5] = R.drawable.blank_canvas;
         splash.prefEditor.putInt("BRUSH_SIZE", brushSize); // loads default Brush Size
         splash.prefEditor.putInt("ALPHA_NUM",alphanum);
+        splash.prefEditor.putInt("TIME_MULT", timemultiplier);
+        splash.prefEditor.putInt("SCALE", 0);
         splash.prefEditor.commit();
         
         mPaint = new Paint();
@@ -350,12 +351,12 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
     //New Stuff
     private static final int CHANGE_SIZE_MENU_ID = Menu.FIRST +5;
     private static final int CHANGE_ALPHA = Menu.FIRST + 6;
-    //private static final int SHARE_BUTTON = Menu.FIRST + 7;
     private static final int PIC_MENU = Menu.FIRST + 7;
     private static final int PLAY_MENU_ID = Menu.FIRST + 8;
     private static final int STOP_MENU_ID = Menu.FIRST + 9;
     private static final int TIMING_MENU_ID = Menu.FIRST + 10;
     private static final int SCALE_ID = Menu.FIRST + 11;
+  //private static final int SHARE_BUTTON = Menu.FIRST + 12;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -368,12 +369,13 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
         //New stuff
         menu.add(0, CHANGE_SIZE_MENU_ID,0,"Brush Size").setShortcut('5','z');
         menu.add(0,CHANGE_ALPHA,0,"Alpha Value").setShortcut('5', 'z');
-        //menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
         menu.add(0,PIC_MENU,0,"Picture Menu").setShortcut('5', 'z');
         menu.add(0, PLAY_MENU_ID, 0, "PLAY").setShortcut('0', 'z');
         menu.add(0, STOP_MENU_ID, 0, "STOP").setShortcut('0', 'z');
         menu.add(0, TIMING_MENU_ID, 0, "Set Time").setShortcut('0', 'z');
         menu.add(0, SCALE_ID, 0, "Major/Minor").setShortcut('0', 'z');
+      //menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('5','z');
+        
         /****   Is this the mechanism to extend with filter effects?
         Intent intent = new Intent(null, getIntent().getData());
         intent.addCategory(Intent.CATEGORY_ALTERNATIVE);

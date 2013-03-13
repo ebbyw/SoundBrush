@@ -1,5 +1,42 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Light" />
+    
+    <style name="GalleryButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingBottom">16dip</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:paddingTop">16dip</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
+    <style name="HorizontalGalleryButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingBottom">16dip</item>
+        <item name="android:paddingLeft">1dip</item>
+        <item name="android:paddingRight">1dip</item>
+        <item name="android:paddingTop">16dip</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    
+    <style name="VerticalGalleryButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingBottom">1dip</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:paddingTop">1dip</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:rotation">90</item>
+    </style>
 
 </resources>

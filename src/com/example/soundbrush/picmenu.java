@@ -24,7 +24,7 @@ public class picmenu extends Activity implements View.OnClickListener
 		findViewById(R.id.imageButton3).setOnClickListener(this);
 		findViewById(R.id.imageButton4).setOnClickListener(this);
 		findViewById(R.id.imageButton5).setOnClickListener(this);
-		findViewById(R.id.button1).setOnClickListener(this);
+		findViewById(R.id.button6).setOnClickListener(this);
 		
 		mp = new MediaPlayer();
 		mp.setLooping(true);
@@ -137,7 +137,7 @@ public class picmenu extends Activity implements View.OnClickListener
 		    	break;
 		    }
 		    
-			case R.id.button1:
+			case R.id.button6:
 		    {
 		    	try
 		    	{
