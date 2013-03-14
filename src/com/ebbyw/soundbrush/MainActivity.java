@@ -446,26 +446,26 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
             	ad.show();
             	return true;
             case CHANGE_ALPHA:
-            	final SeekBar sb2 = new SeekBar(this);
-            	sb2.setMax(254);
-            	sb2.setProgress(splash.thePrefs.getInt("ALPHA_NUM", 0));
-            	AlertDialog ad2 = new AlertDialog.Builder(this).create();
-            	ad2.setTitle("Opacity");
-                ad2.setView(sb2);  	
-            	ad2.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+            	final SeekBar alphabar = new SeekBar(this);
+            	alphabar.setMax(254);
+            	alphabar.setProgress(splash.thePrefs.getInt("ALPHA_NUM", 0));
+            	AlertDialog alphaAlert = new AlertDialog.Builder(this).create();
+            	alphaAlert.setTitle("Opacity");
+            	alphaAlert.setView(alphabar);  	
+            	alphaAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						splash.prefEditor.putInt("ALPHA_NUM", sb2.getProgress() + 1);
+						splash.prefEditor.putInt("ALPHA_NUM", alphabar.getProgress() + 1);
 						splash.prefEditor.commit();
-						mPaint.setAlpha(sb2.getProgress());
+						mPaint.setAlpha(alphabar.getProgress());
 						Toast check = Toast.makeText(getApplicationContext(), Integer.toString(splash.thePrefs.getInt("ALPHA_NUM", 255)), Toast.LENGTH_SHORT);
 						check.show();
 						
 					}
 				});
-            	ad2.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",new DialogInterface.OnClickListener() {
+            	alphaAlert.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",new DialogInterface.OnClickListener() {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -473,7 +473,7 @@ public class MainActivity extends Activity implements ColorPickerDialog.OnColorC
 						
 					}
 				});
-            	ad2.show();
+            	alphaAlert.show();
             	return true;
             //case SHARE_BUTTON:
             	

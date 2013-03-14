@@ -3,14 +3,18 @@ package com.ebbyw.soundbrush;
 import java.io.IOException;
 
 import android.app.Activity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class splash extends Activity implements View.OnClickListener
@@ -39,7 +43,10 @@ public class splash extends Activity implements View.OnClickListener
         splash.prefEditor.putInt("SCALE", 0);
         splash.prefEditor.putInt("COLOR_VAL", colornum);
         splash.prefEditor.commit();
+        
+        //sets up the onclick listeners for the buttons
 		findViewById(R.id.start).setOnClickListener(this);
+		findViewById(R.id.instruct).setOnClickListener(this);
 		
 	  mp = new MediaPlayer();
 		mp.setLooping(true);
@@ -106,6 +113,25 @@ public class splash extends Activity implements View.OnClickListener
 		    	}
 		    	break;
 		    }
+		    case R.id.instruct:{
+		    	final TextView instructView = new TextView(this);
+		    	instructView.setBackgroundColor(Color.WHITE);
+		    	instructView.setText(R.string.instruc_menu_color);
+		    	AlertDialog adInstruc = new AlertDialog.Builder(this).create();
+		    	
+		    	adInstruc.setTitle("Instructions");
+		    	adInstruc.setView(instructView);
+		    	adInstruc.setButton(AlertDialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						
+					}});
+		    	adInstruc.show();
+		    	//break;
+		    	}
+		    
 			default:
 				break;
 		}
