@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">SoundBrush</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SoundBrush</string>
     
@@ -18,5 +18,22 @@
     <string name="button4_pic">@drawable/adam_and_god_small</string>
     <string name="button5_pic">@drawable/mona_lisa_small</string>
     
-
+    <string name="instruc_header">How To Use SoundBrush</string>
+    <string name="instruc_intro_header">Introduction\:</string>
+    <string name="instruc_menu_header">Menu Options\:</string>
+    
+    <string name="instruc_intro_body">SoundBrush is an interactive painting and audio playback application for android operating systems 2.2 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom. \n</string>
+    
+    <string name="instruc_menu_color">Color\: Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then confirm that color by tapping the center circle</string>
+    <string name="instruc_menu_emboss">Emboss\: Changes brush type such that all brush strokes are embossed.</string>
+    <string name="instruc_menu_blur">Blur\: Changes brush type such that all brush strokes are blurred.</string>
+    <string name="instruc_menu_erase">Erase\: Changes brush type to eraser, erases all colors the user brushes on top of.</string>
+    <string name="instruc_menu_srcatop">SrcATop\: Changes brush type so that the user can layer the currently selected color on top of already drawn brush strokes.</string>
+    <string name="instruc_menu_brushsz">Brush Size\: Changes brush radius, allowing user to select a radius between 1 and 501.</string>
+    <string name="instruc_menu_alpha">Alpha Value\: Changes brush stroke opacity, values range from 1 to 255.</string>
+    <string name="instruc_menu_gallery">Picture Menu\: Takes you to the gallery menu in order to select a different canvas.</string>
+    <string name="instruc_menu_play">PLAY\: Plays back the image sound.</string>
+    <string name="instruc_menu_stop">STOP\: Stops playback.</string>
+    <string name="instruc_menu_time">Set Time\: Time multiplier.</string>
+    <string name="instruc_menu_majorminor">Major/Minor\: Toggles playback scale between major and minor.</string>
 </resources>
