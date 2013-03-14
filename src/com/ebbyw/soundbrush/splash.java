@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -116,10 +115,22 @@ public class splash extends Activity implements View.OnClickListener
 		    case R.id.instruct:{
 		    	final TextView instructView = new TextView(this);
 		    	instructView.setBackgroundColor(Color.WHITE);
-		    	instructView.setText(R.string.instruc_menu_color);
+		    	instructView.setText(
+		    			getString(R.string.instruc_menu_color)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_emboss)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_blur)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_erase)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_srcatop)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_brushsz)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_alpha)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_gallery)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_play)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_stop)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_time)+"\n"+"\n"+
+		    			getString(R.string.instruc_menu_majorminor)
+		    		    );
 		    	AlertDialog adInstruc = new AlertDialog.Builder(this).create();
-		    	
-		    	adInstruc.setTitle("Instructions");
+		    	adInstruc.setTitle("Menu Options");
 		    	adInstruc.setView(instructView);
 		    	adInstruc.setButton(AlertDialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener(){
 
@@ -129,7 +140,7 @@ public class splash extends Activity implements View.OnClickListener
 						
 					}});
 		    	adInstruc.show();
-		    	//break;
+		    	break;
 		    	}
 		    
 			default:

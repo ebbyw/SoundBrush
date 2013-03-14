@@ -22,8 +22,8 @@
     <string name="button5_pic">@drawable/mona_lisa_small</string>
     
     <string name="instruc_header">How To Use SoundBrush</string>
-    <string name="instruc_intro_header">Introduction\:</string>
-    <string name="instruc_menu_header">Menu Options\:</string>
+    <string name="instruc_intro_header">Introduction:</string>
+    <string name="instruc_menu_header">Menu Options:</string>
     
     <string name="instruc_intro_body"><b>SoundBrush</b> is an interactive painting and audio playback application for android operating systems 2.2 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom.</string>
     
