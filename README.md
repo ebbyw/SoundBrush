@@ -3,7 +3,7 @@ SoundBrush
 
 A sonified coloring book!
 
-SoundBrush is an interactive painting and audio playback application for android operating systems 2.3 and up. Users can 
+SoundBrush is an interactive painting and audio playback application for android operating systems 2.2 and up. Users can 
 color in pre-outlined images or paint on a blank canvas for more visual freedom.
 
 You can download the apk here: http://bit.ly/Y8OVwc
@@ -31,9 +31,9 @@ Erase:        Changes brush type to eraser, erases all colors the user brushes o
 
 SrcATop:      Changes brush type so that the user can layer the currently selected color on top of already drawn brush strokes.
 
-Brush Size:   Changes brush radius, allowing user to select a radius between 1 and 501;
+Brush Size:   Changes brush radius, allowing user to select a radius between 1 and 501
 
-Alpha Value:  Changes brush stroke opacity, values range from 1 to 255;
+Alpha Value:  Changes brush stroke opacity, values range from 1 to 255
 
 Picture Menu: Takes you to the gallery menu in order to select a different canvas.
 
