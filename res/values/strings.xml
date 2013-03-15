@@ -6,7 +6,7 @@
     
     <string name="splash_img_desc">SoundBrush Logo</string>
     <string name="splash_button1">Start</string>
-    <string name="splash_button2">Instructions</string>
+    <string name="splash_button2">Menu Options</string>
     
     <string name="button1_desc">Button for the Caveman Image</string>
     <string name="button2_desc">Button for the Scream Image</string>

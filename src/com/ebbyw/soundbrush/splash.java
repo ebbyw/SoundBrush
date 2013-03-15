@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class splash extends Activity implements View.OnClickListener
 		setContentView(R.layout.splash_layout);
 		thePrefs = getPreferences(MODE_PRIVATE);
 		prefEditor = thePrefs.edit(); //Sets up the Preferences for editing
+		splash.prefEditor.putInt("BRUSH_TYPE", 0); // 0 - normal , 1- blur, 2-emboss, 3-srcatop, 4-eraser
 		splash.prefEditor.putInt("BRUSH_SIZE", brushSize); // loads default Brush Size
         splash.prefEditor.putInt("ALPHA_NUM",alphanum);
         splash.prefEditor.putInt("TIME_MULT", timemultiplier);
@@ -115,6 +117,7 @@ public class splash extends Activity implements View.OnClickListener
 		    case R.id.instruct:{
 		    	final TextView instructView = new TextView(this);
 		    	instructView.setBackgroundColor(Color.WHITE);
+		    	instructView.setMovementMethod(new ScrollingMovementMethod());
 		    	instructView.setText(
 		    			getString(R.string.instruc_menu_color)+"\n"+"\n"+
 		    			getString(R.string.instruc_menu_emboss)+"\n"+"\n"+
