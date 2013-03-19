@@ -34,6 +34,8 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 import java.lang.Math;
 
+import com.ebbyw.soundbrush.ColorPickerDialog.OnColorChangedListener;
+
 public class MainActivity extends Activity implements
 		ColorPickerDialog.OnColorChangedListener {
 	final int TRI = 0;
@@ -83,7 +85,7 @@ public class MainActivity extends Activity implements
 		mPaint = new Paint();
 		mPaint.setAntiAlias(true);
 		mPaint.setDither(true);
-		mPaint.setColor(splash.thePrefs.getInt("COLOR_VAL", 0xFFFFAA));
+		mPaint.setColor(splash.thePrefs.getInt("COLOR_VAL", 0xFFFFAAAA));
 		mPaint.setStyle(Paint.Style.STROKE);
 		mPaint.setStrokeJoin(Paint.Join.ROUND);
 		mPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -332,16 +334,12 @@ public class MainActivity extends Activity implements
 	 */
 	
 	private static final int BRUSH_MENU_ID = Menu.FIRST;
-	private static final int COLOR_MENU_ID = Menu.FIRST+1;
-	private static final int BRUSH_TYPE_MENU_ID = Menu.FIRST + 2;
-	private static final int BRUSH_SIZE_MENU_ID = Menu.FIRST + 3;
-	private static final int ALPHA_MENU_ID = Menu.FIRST + 4;
-	private static final int PIC_MENU_ID = Menu.FIRST + 5;
-	private static final int PLAY_MENU_ID = Menu.FIRST + 6;
-	private static final int STOP_MENU_ID = Menu.FIRST + 7;
-	private static final int TIMING_MENU_ID = Menu.FIRST + 8;
-	private static final int SCALE_MENU_ID = Menu.FIRST + 9;
-
+	//private static final int COLOR_MENU_ID = Menu.FIRST+1;
+	private static final int PIC_MENU_ID = Menu.FIRST + 1;
+	private static final int PLAY_MENU_ID = Menu.FIRST + 2;
+	private static final int STOP_MENU_ID = Menu.FIRST + 3;
+	private static final int TIMING_MENU_ID = Menu.FIRST + 4;
+	private static final int SCALE_MENU_ID = Menu.FIRST + 5;
 	// private static final int SHARE_BUTTON = Menu.FIRST + 12;
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -351,15 +349,12 @@ public class MainActivity extends Activity implements
 		 * Menu Button order and keyboard shortcuts
 		 */
 		menu.add(0, BRUSH_MENU_ID, 0, "Brush Options").setShortcut('1', 'q');
-		menu.add(0, COLOR_MENU_ID, 0, "Color").setShortcut('1', 'c');
-		menu.add(0, BRUSH_TYPE_MENU_ID, 0, "Brush Type").setShortcut('2', 'b');
-		menu.add(0, BRUSH_SIZE_MENU_ID, 0, "Brush Size").setShortcut('3', 's');
-		menu.add(0, ALPHA_MENU_ID, 0, "Opacity").setShortcut('4', 'o');
-		menu.add(0, PLAY_MENU_ID, 0, "Play").setShortcut('5', 'p');
-		menu.add(0, STOP_MENU_ID, 0, "Stop").setShortcut('6', 'l');
-		menu.add(0, TIMING_MENU_ID, 0, "Time Multiplier").setShortcut('7', 't');
-		menu.add(0, SCALE_MENU_ID, 0, "Major/Minor").setShortcut('8', 'm');
-		menu.add(0, PIC_MENU_ID, 0, "Gallery Menu").setShortcut('9', 'g');
+		//menu.add(0, COLOR_MENU_ID, 0, "Color").setShortcut('2', 'c');
+		menu.add(0, PLAY_MENU_ID, 0, "Play").setShortcut('2', 'p');
+		menu.add(0, STOP_MENU_ID, 0, "Stop").setShortcut('3', 'l');
+		menu.add(0, TIMING_MENU_ID, 0, "Time Multiplier").setShortcut('4', 't');
+		menu.add(0, SCALE_MENU_ID, 0, "Major/Minor").setShortcut('5', 'm');
+		menu.add(0, PIC_MENU_ID, 0, "Gallery Menu").setShortcut('6', 'g');
 		// menu.add(0,SHARE_BUTTON,0,"Share").setShortcut('0','x');
 		return true;
 	}
@@ -382,19 +377,22 @@ public class MainActivity extends Activity implements
 			String[] brushOptions = {"Color","Size","Brush Type","Opacity"};
 			AlertDialog.Builder brushOpPane = new AlertDialog.Builder(this);
 			brushOpPane.setTitle("Choose a property:");
+			final Context mainActivity = this; // had to force these because I was trying to reference "this" from within another context
+			final OnColorChangedListener mainActivityColor = this;
+			
 			brushOpPane.setItems(brushOptions, new DialogInterface.OnClickListener(){
-
+			
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					switch(which){
 					case 0://Color
-						new ColorPickerDialog(this, this, mPaint.getColor()).show();
+						new ColorPickerDialog(mainActivity, mainActivityColor, mPaint.getColor()).show(); // lol I have no idea how this works
 						break;
 					case 1://Size
-						final SeekBar sb = new SeekBar(this);
+						final SeekBar sb = new SeekBar(mainActivity);
 						sb.setMax(500);
 						sb.setProgress(splash.thePrefs.getInt("BRUSH_SIZE", 0));
-						AlertDialog ad = new AlertDialog.Builder(this).create();
+						AlertDialog ad = new AlertDialog.Builder(mainActivity).create();
 						ad.setTitle("Brush Size");
 						ad.setView(sb);
 						ad.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
@@ -429,7 +427,7 @@ public class MainActivity extends Activity implements
 						break;
 					case 2://Brush Type
 						String[] bTypes = { "Normal", "Blur", "Emboss", "SrcATop", "Eraser" };
-						AlertDialog.Builder brushType = new AlertDialog.Builder(this);
+						AlertDialog.Builder brushType = new AlertDialog.Builder(mainActivity);
 						brushType.setTitle("Choose Brush Stroke Type");
 						brushType.setItems(bTypes, new DialogInterface.OnClickListener() {
 
@@ -470,10 +468,10 @@ public class MainActivity extends Activity implements
 						brushType.show();
 						break;
 					case 3://Opacity
-						final SeekBar alphabar = new SeekBar(this);
+						final SeekBar alphabar = new SeekBar(mainActivity);
 						alphabar.setMax(254);
 						alphabar.setProgress(splash.thePrefs.getInt("ALPHA_NUM", 0));
-						AlertDialog alphaAlert = new AlertDialog.Builder(this).create();
+						AlertDialog alphaAlert = new AlertDialog.Builder(mainActivity).create();
 						alphaAlert.setTitle("Opacity");
 						alphaAlert.setView(alphabar);
 						alphaAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
@@ -513,132 +511,13 @@ public class MainActivity extends Activity implements
 				}
 				
 			});
-			return true;
-		case COLOR_MENU_ID:
-			new ColorPickerDialog(this, this, mPaint.getColor()).show();
-			return true;
-
-		case BRUSH_TYPE_MENU_ID:
-			String[] bTypes = { "Normal", "Blur", "Emboss", "SrcATop", "Eraser" };
-			AlertDialog.Builder brushType = new AlertDialog.Builder(this);
-			brushType.setTitle("Choose Brush Stroke Type");
-			brushType.setItems(bTypes, new DialogInterface.OnClickListener() {
-
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					splash.prefEditor.putInt("BRUSH_TYPE", which);
-					splash.prefEditor.commit();
-					switch (splash.thePrefs.getInt("BRUSH_TYPE", 0)) {
-					case 0:// Normal Mode
-						mPaint.setMaskFilter(null);
-						mPaint.setXfermode(new PorterDuffXfermode(
-								PorterDuff.Mode.SRC));
-						break;
-					case 1:// Blur Mode
-						mPaint.setMaskFilter(mBlur);
-						mPaint.setXfermode(new PorterDuffXfermode(
-								PorterDuff.Mode.SRC));
-						break;
-					case 2:// Emboss Mode
-						mPaint.setMaskFilter(mEmboss);
-						mPaint.setXfermode(new PorterDuffXfermode(
-								PorterDuff.Mode.SRC));
-						break;
-					case 3:// SrcATop Mode
-						mPaint.setXfermode(new PorterDuffXfermode(
-								PorterDuff.Mode.SRC_ATOP));
-						mPaint.setAlpha(0x80);
-						break;
-					case 4:// Eraser Mode
-						mPaint.setXfermode(new PorterDuffXfermode(
-								PorterDuff.Mode.CLEAR));
-					default:
-						break;
-					}
-				}
-			});
-			brushType.create();
-			brushType.show();
-			return true;
-
-		case BRUSH_SIZE_MENU_ID:
-			final SeekBar sb = new SeekBar(this);
-			sb.setMax(500);
-			sb.setProgress(splash.thePrefs.getInt("BRUSH_SIZE", 0));
-			AlertDialog ad = new AlertDialog.Builder(this).create();
-			ad.setTitle("Brush Size");
-			ad.setView(sb);
-			ad.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-							splash.prefEditor.putInt("BRUSH_SIZE",
-									sb.getProgress() + 1);
-							splash.prefEditor.commit();
-							mPaint.setStrokeWidth(sb.getProgress());
-							Toast check = Toast.makeText(
-									getApplicationContext(), Integer
-											.toString(splash.thePrefs.getInt(
-													"BRUSH_SIZE", 255)),
-									Toast.LENGTH_SHORT);
-							check.show();
-
-						}
-					});
-			ad.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-
-						}
-					});
-			ad.show();
+			brushOpPane.create();
+			brushOpPane.show();
 			return true;
 			
-		case ALPHA_MENU_ID:
-			final SeekBar alphabar = new SeekBar(this);
-			alphabar.setMax(254);
-			alphabar.setProgress(splash.thePrefs.getInt("ALPHA_NUM", 0));
-			AlertDialog alphaAlert = new AlertDialog.Builder(this).create();
-			alphaAlert.setTitle("Opacity");
-			alphaAlert.setView(alphabar);
-			alphaAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-							splash.prefEditor.putInt("ALPHA_NUM",
-									alphabar.getProgress() + 1);
-							splash.prefEditor.commit();
-							mPaint.setAlpha(alphabar.getProgress());
-							Toast check = Toast.makeText(
-									getApplicationContext(), Integer
-											.toString(splash.thePrefs.getInt(
-													"ALPHA_NUM", 255)),
-									Toast.LENGTH_SHORT);
-							check.show();
-
-						}
-					});
-			alphaAlert.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-
-						}
-					});
-			alphaAlert.show();
-			return true;
-			// case SHARE_BUTTON:
-
-			// return true;
+		/*case COLOR_MENU_ID:
+			new ColorPickerDialog(this, this, mPaint.getColor()).show();
+			return true;*/
 
 		case PIC_MENU_ID:
 			startActivity(new Intent(getBaseContext(), picmenu.class));

@@ -30,7 +30,7 @@ public class ColorPickerDialog extends Dialog {
     }
 
     private OnColorChangedListener mListener;
-    private int mInitialColor = splash.thePrefs.getInt("COLOR_VAL", 0xFFAAAAAA);
+    private int mInitialColor = splash.thePrefs.getInt("COLOR_VAL", 0xFFFFAAAA);
 
     private static class ColorPickerView extends View {
         private Paint mPaint;
