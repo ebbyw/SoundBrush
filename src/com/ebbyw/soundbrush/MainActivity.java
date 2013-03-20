@@ -270,7 +270,8 @@ public class MainActivity extends Activity implements
 
 		@Override
 		protected void onDraw(Canvas canvas) {
-			canvas.drawColor(splash.thePrefs.getInt("COLOR_VAL", 0xFFAAAAAA)); //starting color value
+			canvas.drawColor(0xFFFFFFFF); //starting background color value
+			//canvas.drawColor(splash.thePrefs.getInt("COLOR_VAL", 0xFFAAAAAA)); //starting color value
 			canvas.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
 			canvas.drawBitmap(sBitmap, new Matrix(), null);
 			canvas.drawPath(mPath, mPaint);

@@ -25,7 +25,7 @@ public class splash extends Activity implements View.OnClickListener
 	//Initial Preference values
   	int brushSize = 12;
   	int alphanum = 255;
-  	int colornum = 0xFFAAAAAA; //That's red btw
+  	int colornum = 0xFFFFAAAA; //That's red btw
   	int timemultiplier = 1;
   	int scale = 0;
 	
