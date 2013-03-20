@@ -40,14 +40,14 @@ public final class R {
         public static final int imageButton3=0x7f090002;
         public static final int imageButton4=0x7f090003;
         public static final int imageButton5=0x7f090004;
-        public static final int imageView1=0x7f090006;
-        public static final int menu_settings=0x7f090008;
+        public static final int instruct=0x7f090008;
+        public static final int menu_settings=0x7f090009;
+        public static final int splashlogo=0x7f090006;
         public static final int start=0x7f090007;
     }
     public static final class layout {
         public static final int gallery_layout=0x7f030000;
-        public static final int instructions_layout=0x7f030001;
-        public static final int splash_layout=0x7f030002;
+        public static final int splash_layout=0x7f030001;
     }
     public static final class menu {
         public static final int activity_main=0x7f080000;
@@ -59,34 +59,38 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f060000;
-        public static final int button1_desc=0x7f060003;
-        public static final int button1_pic=0x7f060009;
-        public static final int button2_desc=0x7f060004;
-        public static final int button2_pic=0x7f06000a;
-        public static final int button3_desc=0x7f060005;
-        public static final int button3_pic=0x7f06000b;
-        public static final int button4_desc=0x7f060006;
-        public static final int button4_pic=0x7f06000c;
-        public static final int button5_desc=0x7f060007;
-        public static final int button5_pic=0x7f06000d;
-        public static final int button6_desc=0x7f060008;
-        public static final int instruc_header=0x7f06000e;
-        public static final int instruc_intro_body=0x7f060011;
-        public static final int instruc_intro_header=0x7f06000f;
-        public static final int instruc_menu_alpha=0x7f060018;
-        public static final int instruc_menu_blur=0x7f060014;
-        public static final int instruc_menu_brushsz=0x7f060017;
-        public static final int instruc_menu_color=0x7f060012;
-        public static final int instruc_menu_emboss=0x7f060013;
-        public static final int instruc_menu_erase=0x7f060015;
-        public static final int instruc_menu_gallery=0x7f060019;
-        public static final int instruc_menu_header=0x7f060010;
-        public static final int instruc_menu_majorminor=0x7f06001d;
-        public static final int instruc_menu_play=0x7f06001a;
-        public static final int instruc_menu_srcatop=0x7f060016;
-        public static final int instruc_menu_stop=0x7f06001b;
-        public static final int instruc_menu_time=0x7f06001c;
+        public static final int button1_desc=0x7f060006;
+        public static final int button1_pic=0x7f06000c;
+        public static final int button2_desc=0x7f060007;
+        public static final int button2_pic=0x7f06000d;
+        public static final int button3_desc=0x7f060008;
+        public static final int button3_pic=0x7f06000e;
+        public static final int button4_desc=0x7f060009;
+        public static final int button4_pic=0x7f06000f;
+        public static final int button5_desc=0x7f06000a;
+        public static final int button5_pic=0x7f060010;
+        public static final int button6_desc=0x7f06000b;
+        public static final int instruc_header=0x7f060011;
+        public static final int instruc_intro_body=0x7f060014;
+        public static final int instruc_intro_header=0x7f060012;
+        public static final int instruc_menu_alpha=0x7f06001c;
+        public static final int instruc_menu_blur=0x7f060018;
+        public static final int instruc_menu_brushsz=0x7f06001b;
+        public static final int instruc_menu_color=0x7f060016;
+        public static final int instruc_menu_emboss=0x7f060017;
+        public static final int instruc_menu_erase=0x7f060019;
+        public static final int instruc_menu_gallery=0x7f06001d;
+        public static final int instruc_menu_header=0x7f060013;
+        public static final int instruc_menu_majorminor=0x7f060021;
+        public static final int instruc_menu_nobutton=0x7f060015;
+        public static final int instruc_menu_play=0x7f06001e;
+        public static final int instruc_menu_srcatop=0x7f06001a;
+        public static final int instruc_menu_stop=0x7f06001f;
+        public static final int instruc_menu_time=0x7f060020;
         public static final int menu_settings=0x7f060001;
+        public static final int splash_button1=0x7f060004;
+        public static final int splash_button2=0x7f060005;
+        public static final int splash_img_desc=0x7f060003;
         public static final int title_activity_main=0x7f060002;
     }
     public static final class style {

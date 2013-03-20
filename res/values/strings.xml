@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">SoundBrush</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SoundBrush</string>
+    
+    <string name="splash_img_desc">SoundBrush Logo</string>
+    <string name="splash_button1">Start</string>
+    <string name="splash_button2">Menu Options</string>
     
     <string name="button1_desc">Button for the Caveman Image</string>
     <string name="button2_desc">Button for the Scream Image</string>
@@ -19,21 +22,22 @@
     <string name="button5_pic">@drawable/mona_lisa_small</string>
     
     <string name="instruc_header">How To Use SoundBrush</string>
-    <string name="instruc_intro_header">Introduction\:</string>
-    <string name="instruc_menu_header">Menu Options\:</string>
+    <string name="instruc_intro_header">Introduction:</string>
+    <string name="instruc_menu_header">Menu Options:</string>
     
-    <string name="instruc_intro_body">SoundBrush is an interactive painting and audio playback application for android operating systems 2.2 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom. \n</string>
+    <string name="instruc_intro_body"><b>SoundBrush</b> is an interactive painting and audio playback application for android operating systems 1.6 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom.</string>
     
-    <string name="instruc_menu_color">Color\: Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then confirm that color by tapping the center circle</string>
-    <string name="instruc_menu_emboss">Emboss\: Changes brush type such that all brush strokes are embossed.</string>
-    <string name="instruc_menu_blur">Blur\: Changes brush type such that all brush strokes are blurred.</string>
-    <string name="instruc_menu_erase">Erase\: Changes brush type to eraser, erases all colors the user brushes on top of.</string>
-    <string name="instruc_menu_srcatop">SrcATop\: Changes brush type so that the user can layer the currently selected color on top of already drawn brush strokes.</string>
-    <string name="instruc_menu_brushsz">Brush Size\: Changes brush radius, allowing user to select a radius between 1 and 501.</string>
-    <string name="instruc_menu_alpha">Alpha Value\: Changes brush stroke opacity, values range from 1 to 255.</string>
-    <string name="instruc_menu_gallery">Picture Menu\: Takes you to the gallery menu in order to select a different canvas.</string>
-    <string name="instruc_menu_play">PLAY\: Plays back the image sound.</string>
-    <string name="instruc_menu_stop">STOP\: Stops playback.</string>
-    <string name="instruc_menu_time">Set Time\: Time multiplier.</string>
-    <string name="instruc_menu_majorminor">Major/Minor\: Toggles playback scale between major and minor.</string>
+    <string name="instruc_menu_nobutton"><b>NOTE:</b> For users who do not have a dedicated menu button on their devices, simply tap and hold to bring up menu options.</string>
+    <string name="instruc_menu_color"><b>Color:</b> Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then confirm that color by tapping the center circle</string>
+    <string name="instruc_menu_emboss"><b>Emboss:</b> Changes brush type such that all brush strokes are embossed.</string>
+    <string name="instruc_menu_blur"><b>Blur:</b> Changes brush type such that all brush strokes are blurred.</string>
+    <string name="instruc_menu_erase"><b>Erase:</b> Changes brush type to eraser, erases all colors the user brushes on top of.</string>
+    <string name="instruc_menu_srcatop"><b>SrcATop:</b> Changes brush type so that the user can layer the currently selected color on top of already drawn brush strokes.</string>
+    <string name="instruc_menu_brushsz"><b>Brush Size:</b> Changes brush radius, allowing user to select a radius between 1 and 501.</string>
+    <string name="instruc_menu_alpha"><b>Alpha Value:</b> Changes brush stroke opacity, values range from 1 to 255.</string>
+    <string name="instruc_menu_gallery"><b>Picture Menu:</b> Takes you to the gallery menu in order to select a different canvas.</string>
+    <string name="instruc_menu_play"><b>Play:</b> Plays back the image sound.</string>
+    <string name="instruc_menu_stop"><b>Stop:</b> Stops playback.</string>
+    <string name="instruc_menu_time"><b>Set Time:</b> Time multiplier.</string>
+    <string name="instruc_menu_majorminor"><b>Major/Minor:</b> Toggles playback scale between major and minor.</string>
 </resources>
