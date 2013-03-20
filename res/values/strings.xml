@@ -25,8 +25,9 @@
     <string name="instruc_intro_header">Introduction:</string>
     <string name="instruc_menu_header">Menu Options:</string>
     
-    <string name="instruc_intro_body"><b>SoundBrush</b> is an interactive painting and audio playback application for android operating systems 2.2 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom.</string>
+    <string name="instruc_intro_body"><b>SoundBrush</b> is an interactive painting and audio playback application for android operating systems 1.6 and up. Users can color in pre-outlined images or paint on a blank canvas for more visual freedom.</string>
     
+    <string name="instruc_menu_nobutton"><b>NOTE:</b> For users who do not have a dedicated menu button on their devices, simply tap and hold to bring up menu options.</string>
     <string name="instruc_menu_color"><b>Color:</b> Chooses the paintbrush color, in order to select color, user must tap a region on the color wheel and then confirm that color by tapping the center circle</string>
     <string name="instruc_menu_emboss"><b>Emboss:</b> Changes brush type such that all brush strokes are embossed.</string>
     <string name="instruc_menu_blur"><b>Blur:</b> Changes brush type such that all brush strokes are blurred.</string>

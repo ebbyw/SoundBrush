@@ -119,6 +119,7 @@ public class splash extends Activity implements View.OnClickListener
 		    	instructView.setBackgroundColor(Color.WHITE);
 		    	instructView.setMovementMethod(new ScrollingMovementMethod());
 		    	instructView.setText(
+		    			getString(R.string.instruc_menu_nobutton)+"\n"+"\n"+
 		    			getString(R.string.instruc_menu_color)+"\n"+"\n"+
 		    			getString(R.string.instruc_menu_emboss)+"\n"+"\n"+
 		    			getString(R.string.instruc_menu_blur)+"\n"+"\n"+

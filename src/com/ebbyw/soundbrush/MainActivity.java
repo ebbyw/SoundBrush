@@ -5,9 +5,9 @@ import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +24,7 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -37,7 +38,7 @@ import java.lang.Math;
 import com.ebbyw.soundbrush.ColorPickerDialog.OnColorChangedListener;
 
 public class MainActivity extends Activity implements
-		ColorPickerDialog.OnColorChangedListener {
+ColorPickerDialog.OnColorChangedListener {
 	final int TRI = 0;
 	final int SAW = 1;
 	final int SQUARE = 2;
@@ -53,14 +54,16 @@ public class MainActivity extends Activity implements
 	float yScalar;
 	float[] halfStepScalars;
 	final float startingFreq = (float) (440 * Math.pow(2.0, 1 / 12.0)); // start
-																		// from
-																		// Bb
-																		// (REMOVE
-																		// THIS
-																		// LATER)
+	// from
+	// Bb
+	// (REMOVE
+	// THIS
+	// LATER)
 	final int[] majorScaleIndexes = { 0, 2, 4, 5, 7, 9, 11, 12 };
 	final int[] minorScaleIndexes = { 0, 2, 3, 5, 7, 8, 10, 12 };
-
+	
+	public static int LONG_PRESS_TIME = 500; // Time in miliseconds 
+	
 	MyView mainView;
 
 	private SoundEffectPlayer seplayer;
@@ -313,15 +316,18 @@ public class MainActivity extends Activity implements
 
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
+				_handler.postDelayed(_longPressed, LONG_PRESS_TIME);
 				seplayer.playSound(SOUNDEFFECT_BRUSH, 0.5f);
 				touch_start(x, y);
 				invalidate();
 				break;
 			case MotionEvent.ACTION_MOVE:
+				 _handler.removeCallbacks(_longPressed);
 				touch_move(x, y);
 				invalidate();
 				break;
 			case MotionEvent.ACTION_UP:
+				_handler.removeCallbacks(_longPressed);
 				touch_up();
 				invalidate();
 				break;
@@ -333,9 +339,8 @@ public class MainActivity extends Activity implements
 	/**
 	 * Menu Stuff Starts here
 	 */
-	
+
 	private static final int BRUSH_MENU_ID = Menu.FIRST;
-	//private static final int COLOR_MENU_ID = Menu.FIRST+1;
 	private static final int PIC_MENU_ID = Menu.FIRST + 1;
 	private static final int PLAY_MENU_ID = Menu.FIRST + 2;
 	private static final int STOP_MENU_ID = Menu.FIRST + 3;
@@ -350,7 +355,6 @@ public class MainActivity extends Activity implements
 		 * Menu Button order and keyboard shortcuts
 		 */
 		menu.add(0, BRUSH_MENU_ID, 0, "Brush Options").setShortcut('1', 'q');
-		//menu.add(0, COLOR_MENU_ID, 0, "Color").setShortcut('2', 'c');
 		menu.add(0, PLAY_MENU_ID, 0, "Play").setShortcut('2', 'p');
 		menu.add(0, STOP_MENU_ID, 0, "Stop").setShortcut('3', 'l');
 		menu.add(0, TIMING_MENU_ID, 0, "Time Multiplier").setShortcut('4', 't');
@@ -380,9 +384,9 @@ public class MainActivity extends Activity implements
 			brushOpPane.setTitle("Choose a property:");
 			final Context mainActivity = this; // had to force these because I was trying to reference "this" from within another context
 			final OnColorChangedListener mainActivityColor = this;
-			
+
 			brushOpPane.setItems(brushOptions, new DialogInterface.OnClickListener(){
-			
+
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					switch(which){
@@ -399,31 +403,31 @@ public class MainActivity extends Activity implements
 						ad.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
 								new DialogInterface.OnClickListener() {
 
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										// TODO Auto-generated method stub
-										splash.prefEditor.putInt("BRUSH_SIZE",
-												sb.getProgress() + 1);
-										splash.prefEditor.commit();
-										mPaint.setStrokeWidth(sb.getProgress());
-										Toast check = Toast.makeText(
-												getApplicationContext(), Integer
-														.toString(splash.thePrefs.getInt(
-																"BRUSH_SIZE", 255)),
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								splash.prefEditor.putInt("BRUSH_SIZE",
+										sb.getProgress() + 1);
+								splash.prefEditor.commit();
+								mPaint.setStrokeWidth(sb.getProgress());
+								Toast check = Toast.makeText(
+										getApplicationContext(), Integer
+										.toString(splash.thePrefs.getInt(
+												"BRUSH_SIZE", 255)),
 												Toast.LENGTH_SHORT);
-										check.show();
+								check.show();
 
-									}
-								});
+							}
+						});
 						ad.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
 								new DialogInterface.OnClickListener() {
 
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										// TODO Auto-generated method stub
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
 
-									}
-								});
+							}
+						});
 						ad.show();
 						break;
 					case 2://Brush Type
@@ -478,45 +482,45 @@ public class MainActivity extends Activity implements
 						alphaAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
 								new DialogInterface.OnClickListener() {
 
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										// TODO Auto-generated method stub
-										splash.prefEditor.putInt("ALPHA_NUM",
-												alphabar.getProgress() + 1);
-										splash.prefEditor.commit();
-										mPaint.setAlpha(alphabar.getProgress());
-										Toast check = Toast.makeText(
-												getApplicationContext(), Integer
-														.toString(splash.thePrefs.getInt(
-																"ALPHA_NUM", 255)),
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								splash.prefEditor.putInt("ALPHA_NUM",
+										alphabar.getProgress() + 1);
+								splash.prefEditor.commit();
+								mPaint.setAlpha(alphabar.getProgress());
+								Toast check = Toast.makeText(
+										getApplicationContext(), Integer
+										.toString(splash.thePrefs.getInt(
+												"ALPHA_NUM", 255)),
 												Toast.LENGTH_SHORT);
-										check.show();
+								check.show();
 
-									}
-								});
+							}
+						});
 						alphaAlert.setButton(AlertDialog.BUTTON_NEGATIVE, "NO",
 								new DialogInterface.OnClickListener() {
 
-									@Override
-									public void onClick(DialogInterface dialog, int which) {
-										// TODO Auto-generated method stub
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
 
-									}
-								});
+							}
+						});
 						alphaAlert.show();
 						break;
 					default:
 						break;
 					}
-					
+
 				}
-				
+
 			});
 			brushOpPane.create();
 			brushOpPane.show();
 			return true;
-			
-		/*case COLOR_MENU_ID:
+
+			/*case COLOR_MENU_ID:
 			new ColorPickerDialog(this, this, mPaint.getColor()).show();
 			return true;*/
 
@@ -545,24 +549,24 @@ public class MainActivity extends Activity implements
 			ad99.setButton(DialogInterface.BUTTON_POSITIVE, "OK",
 					new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-							splash.prefEditor.putInt("TIME_MULT", Integer
-									.valueOf(et.getText().toString())
-									.intValue());
-							splash.prefEditor.commit();
-						}
-					});
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					splash.prefEditor.putInt("TIME_MULT", Integer
+							.valueOf(et.getText().toString())
+							.intValue());
+					splash.prefEditor.commit();
+				}
+			});
 			ad99.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel",
 					new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
 
-						}
-					});
+				}
+			});
 			ad99.show();
 			return true;
 		}
@@ -583,4 +587,13 @@ public class MainActivity extends Activity implements
 		}
 
 	}
+	
+	final Handler _handler = new Handler(); 
+	Runnable _longPressed = new Runnable() { 
+	    public void run() {
+	        Log.i("info","LongPress");
+	        openOptionsMenu();
+	    }   
+	};
+
 }
