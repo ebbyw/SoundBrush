@@ -61,9 +61,9 @@ ColorPickerDialog.OnColorChangedListener {
 	// LATER)
 	final int[] majorScaleIndexes = { 0, 2, 4, 5, 7, 9, 11, 12 };
 	final int[] minorScaleIndexes = { 0, 2, 3, 5, 7, 8, 10, 12 };
-	
+
 	public static int LONG_PRESS_TIME = 500; // Time in miliseconds 
-	
+
 	MyView mainView;
 
 	private SoundEffectPlayer seplayer;
@@ -588,13 +588,13 @@ ColorPickerDialog.OnColorChangedListener {
 		}
 
 	}
-	
+
 	final Handler _handler = new Handler(); 
 	Runnable _longPressed = new Runnable() { 
-	    public void run() {
-	        Log.i("info","LongPress");
-	        openOptionsMenu();
-	    }   
+		public void run() {
+			Log.i("info","LongPress");
+			openOptionsMenu();
+		}   
 	};
 
 }
