@@ -282,7 +282,7 @@ ColorPickerDialog.OnColorChangedListener {
 		}
 
 		private float mX, mY;
-		private static final float TOUCH_TOLERANCE = 10;
+		private static final float TOUCH_TOLERANCE = 5;
 
 		private void touch_start(float x, float y) {
 			mPath.reset();
@@ -295,6 +295,8 @@ ColorPickerDialog.OnColorChangedListener {
 			float dx = Math.abs(x - mX);
 			float dy = Math.abs(y - mY);
 			if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
+				_handler.removeCallbacks(_longPressed);
+				closeOptionsMenu();
 				mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
 				mX = x;
 				mY = y;
@@ -322,7 +324,6 @@ ColorPickerDialog.OnColorChangedListener {
 				invalidate();
 				break;
 			case MotionEvent.ACTION_MOVE:
-				 _handler.removeCallbacks(_longPressed);
 				touch_move(x, y);
 				invalidate();
 				break;
