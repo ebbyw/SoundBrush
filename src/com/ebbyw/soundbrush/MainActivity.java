@@ -282,7 +282,7 @@ ColorPickerDialog.OnColorChangedListener {
 		}
 
 		private float mX, mY;
-		private static final float TOUCH_TOLERANCE = 4;
+		private static final float TOUCH_TOLERANCE = 10;
 
 		private void touch_start(float x, float y) {
 			mPath.reset();
