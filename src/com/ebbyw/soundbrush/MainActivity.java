@@ -61,9 +61,9 @@ ColorPickerDialog.OnColorChangedListener {
 	// LATER)
 	final int[] majorScaleIndexes = { 0, 2, 4, 5, 7, 9, 11, 12 };
 	final int[] minorScaleIndexes = { 0, 2, 3, 5, 7, 8, 10, 12 };
-	
+
 	public static int LONG_PRESS_TIME = 500; // Time in miliseconds 
-	
+
 	MyView mainView;
 
 	private SoundEffectPlayer seplayer;
@@ -282,7 +282,7 @@ ColorPickerDialog.OnColorChangedListener {
 		}
 
 		private float mX, mY;
-		private static final float TOUCH_TOLERANCE = 4;
+		private static final float TOUCH_TOLERANCE = 5;
 
 		private void touch_start(float x, float y) {
 			mPath.reset();
@@ -295,6 +295,8 @@ ColorPickerDialog.OnColorChangedListener {
 			float dx = Math.abs(x - mX);
 			float dy = Math.abs(y - mY);
 			if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
+				_handler.removeCallbacks(_longPressed);
+				closeOptionsMenu();
 				mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
 				mX = x;
 				mY = y;
@@ -322,7 +324,6 @@ ColorPickerDialog.OnColorChangedListener {
 				invalidate();
 				break;
 			case MotionEvent.ACTION_MOVE:
-				 _handler.removeCallbacks(_longPressed);
 				touch_move(x, y);
 				invalidate();
 				break;
@@ -587,13 +588,13 @@ ColorPickerDialog.OnColorChangedListener {
 		}
 
 	}
-	
+
 	final Handler _handler = new Handler(); 
 	Runnable _longPressed = new Runnable() { 
-	    public void run() {
-	        Log.i("info","LongPress");
-	        openOptionsMenu();
-	    }   
+		public void run() {
+			Log.i("info","LongPress");
+			openOptionsMenu();
+		}   
 	};
 
 }
